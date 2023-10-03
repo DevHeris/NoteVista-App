@@ -1,5 +1,5 @@
 ﻿# NoteVista-App
-The functionalies include;
+# The functionalies include;
 ## 📝 Create, read, update, and delete notes effortlessly.
 ## 🔒 Secure your notes with robust authentication using Flask-JWT-Extended.
 ## 🗄️ Store notes in a database powered by Flask-SQLAlchemy for reliable data management.
