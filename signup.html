@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Inioluwa Badairo & Morakinyo Ifeoluwa">
+    <meta name="description" content="A note app to create, read, update, and delete notes effortlessly.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="color-scheme" content="dark"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <header>
+        <h1>Get Started</h1>
+    </header>
+
+    <main>
+        <div class="signup-container">
+            <form id="login-form" autocomplete="on">
+                <fieldset>
+                    <div class="input-container">
+                        <input type=" text" id="name" name="name" placeholder="👤 Full name" autocomplete="name"
+                            autofocus class="signup-name" required>
+                        <label for="name"></label>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="email" id="email" name="email" placeholder="✉ Email Address" autocomplete="email"
+                            class="signup-email" required>
+                        <label for="email"></label>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" placeholder="🛡 Password"
+                            autocomplete="off" class="signup-password" required>
+                        <label for="password"></label>
+                    </div>
+                </fieldset>
+                <input type="submit" name="commit" id="signup-btn" value="Sign Up">
+            </form>
+
+            <div>
+                <a class="already-user" id="login-link" href="login.html">I already
+                    have an account</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
