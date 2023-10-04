@@ -15,41 +15,51 @@
 </head>
 
 <body>
-    <header>
-        <h1>Get Started</h1>
-    </header>
-
-    <main>
-        <div class="signup-container">
-            <form id="login-form" autocomplete="on">
-                <fieldset>
-                    <div class="input-container">
-                        <input type=" text" id="name" name="name" placeholder="👤 Full name" autocomplete="name"
-                            autofocus class="signup-name" required>
+    <img src="Images/img/wave-haikei.svg" class="wave" alt="wave">
+    <div class="container">
+        <div class="img">
+            <img src="Images/img/undraw_note_list_re_r4u9.svg" alt="notes">
+        </div>
+        <div class="login-content">
+            <form>
+                <img src="Images/img/undraw_pic_profile_re_7g2h.svg" alt="profile-picture">
+                <h2 class="title">Get Started</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input type="text" class="input" id="name" name="name" autocomplete="on"
+                            placeholder="Full Name">
                         <label for="name"></label>
                     </div>
-
-                    <div class="input-container">
-                        <input type="email" id="email" name="email" placeholder="✉ Email Address" autocomplete="email"
-                            class="signup-email" required>
+                </div>
+                <div class="input-div mail">
+                    <div class="i">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <input type="email" class="input" id="email" name="email" autocomplete="on"
+                            placeholder="Email Address">
                         <label for="email"></label>
                     </div>
-
-                    <div class="input-container">
-                        <input type="password" id="password" name="password" placeholder="🛡 Password"
-                            autocomplete="off" class="signup-password" required>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <input type="password" class="input" id="password" name="password" autocomplete="off"
+                            placeholder="Password">
                         <label for="password"></label>
                     </div>
-                </fieldset>
-                <input type="submit" name="commit" id="signup-btn" value="Sign Up">
+                </div>
+                <input type="submit" id="btn" class="btn" value="Sign Up">
+                <a href="login.html">Already have an account?</a>
             </form>
-
-            <div>
-                <a class="already-user" id="login-link" href="login.html">I already
-                    have an account</a>
-            </div>
         </div>
-    </main>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>

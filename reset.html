@@ -11,38 +11,44 @@
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="style.css">
-    <title>Forgot Password</title>
+    <title>Log In</title>
 </head>
 
 <body>
+    <img src="Images/img/wave-haikei.svg" class="wave" alt="wave">
     <div class="container">
-        <header class="heading">
-            <h1>Forgot Password?</h1>
-        </header>
-        <main>
-            <p class="text">Please enter your email address below. Further instructions on how to reset your
-                password
-                will be sent to you.
-            </p>
-            <div class="form-container">
-                <form id="reset-form">
-                    <fieldset>
-                        <div class="input-container">
-                            <input type=" email" id="email" placeholder="✉ Email" name="email" required
-                                autocomplete="email" autofocus>
-                            <label for="email"></label>
-                        </div>
-                    </fieldset>
-                    <input type="submit" id="submit-btn" class="btn" value="Reset Password" name="commit">
-                    <p class="login-signup">
-                        Remembered your password?
-                        <a href="login.html">Log in</a>
-                    </p>
-                </form>
-            </div>
-        </main>
-    </div>
+        <div class="img">
+            <img src="Images/img/8810413-removebg.png" alt="notes">
+        </div>
+        <div class="login-content">
+            <form>
+                <img src="Images/img/undraw_pic_profile_re_7g2h.svg" alt="profile-picture">
+                <h2 class="title">Forgot Password?</h2>
 
+                <p class="text">Please enter your email address below. Further instructions on how to reset your
+                    password
+                    will be sent to you.
+                </p>
+                <div class="input-div mail">
+                    <div class="i">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <input type="email" class="input" id="email" name="email" autocomplete="on"
+                            placeholder="Email Address">
+                        <label for="email"></label>
+                    </div>
+                </div>
+                <a href="reset.html">Forgot Password?</a>
+                <input type="submit" id="btn" class="btn" value="Log In">
+                <p class="text">
+                    Remembered your password?<a href="login.html">Sign Up</a>
+                </p>
+
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>

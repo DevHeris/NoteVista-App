@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="author" content="Inioluwa Badairo & Morakinyo Ifeoluwa">
     <meta name="description" content="A note app to create, read, update, and delete notes effortlessly.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,37 +15,45 @@
 </head>
 
 <body>
-
-    <main>
-        <section class="form-container">
-            <form id="login-form" autocomplete="on">
-                <fieldset>
-                    <legend>
-                        <h1 class="heading">Welcome to NoteVista</h1>
-                    </legend>
-                    <div class="input-container">
-                        <input type="email" id="email" placeholder="✉ Email" name="email" required autofocus>
-                        <label for="email"></label>
+    <img src="Images/img/wave-haikei.svg" class="wave" alt="wave">
+    <div class="container">
+        <div class="img">
+            <img src="Images/img/undraw_add_notes_re_ln36.svg" alt="notes">
+        </div>
+        <div class="login-content">
+            <form>
+                <img src="Images/img/undraw_pic_profile_re_7g2h.svg" alt="profile-picture">
+                <h2 class="title">Welcome</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <div class="input-container">
-                        <input type="text" id="password" placeholder="🛡 Password" autocomplete="off" name="password"
-                            required>
+                    <div class="div">
+                        <input type="text" class="input" id="username" name="username" autocomplete="on"
+                            placeholder="Username">
+                        <label for="username"></label>
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <input type="password" class="input" id="password" name="password" autocomplete="off"
+                            placeholder="Password">
                         <label for="password"></label>
                     </div>
-                </fieldset>
-
-                <input type="submit" value="Log In" class="btn" name="commit" id="login-btn">
-
-                <p id="forgot-password">
-                    <a href="reset.html" class="forgot-password">Forgot your password?</a>
-                </p>
-                <p class="signup">
+                </div>
+                <a href="reset.html">Forgot Password?</a>
+                <input type="submit" id="btn" class="btn" value="Log In">
+                <p class="text">
                     Don't have an account? <a href="signup.html">Sign Up</a>
                 </p>
-            </form>
-        </section>
-    </main>
 
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
