@@ -16,6 +16,7 @@
     margin: 0;
     padding: 0;
     font: inherit;
+
 }
 
 /* Remove list styles on  ul, ol elements with a list role, which suggests default styling will be removed */
@@ -40,6 +41,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     overflow: hidden;
+    /* background-color: rgb(143, 143, 228); */
     background-image: url(Images/bg-pattern-desktop.svg);
 }
 
@@ -71,13 +73,34 @@ svg {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 7rem;
-    padding: 0 2rem;
+    padding: 0 2rem 0 0;
 }
 
 .img {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
+    background-image: url(img/wave-haikei.svg);
+    background-size: cover;
+}
+
+.logo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-content: left;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 3em;
+    font-weight: bold;
+    font-family: cursive;
+    color: #463a3aae;
+    text-shadow: 0 0 1px #333;
+}
+
+span {
+    color: #6370ff;
 }
 
 .login-content {
@@ -96,7 +119,6 @@ form {
     display: flex;
     flex-direction: column;
 }
-
 
 
 .login-content img {
@@ -282,5 +304,9 @@ a:hover {
 
     .login-content {
         justify-content: center;
+    }
+
+    .logo-wrapper {
+        display: grid;
     }
 }
