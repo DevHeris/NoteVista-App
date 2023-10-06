@@ -662,3 +662,43 @@ a:hover {
 .greeting span {
     color: white;
 }
+
+/* Hamburger menu pop-up */
+.hamburger-pop-up {
+    background-color: white;
+    box-shadow: 1px 1px 7px #33333349;
+    width: 20em;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    margin: 1.45em;
+    padding-right: 2.5em;
+    padding-top: 0;
+    margin-top: 0;
+
+}
+
+.nav-ul-ham {
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.nav-ul-ham>* {
+    margin: 2em;
+}
+
+.nav-ul-ham i {
+    color: var(--primary-blue-clr);
+}
+
+.hamburger-pop-up img {
+    justify-self: right;
+    align-self: flex-end;
+}
