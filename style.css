@@ -339,11 +339,13 @@ a:hover {
 .header .logo-text {
     font-size: 2em;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .header .logo {
     max-height: 3em;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .search {
@@ -604,6 +606,10 @@ a:hover {
     z-index: 1;
 }
 
+.email {
+    color: #333;
+}
+
 .profile-pop-up>* {
     margin: 1em;
 }
@@ -627,6 +633,7 @@ a:hover {
     color: var(--primary-blue-clr);
 }
 
+
 .profile-img-container {
     border-radius: 50%;
     height: 9em;
@@ -640,17 +647,11 @@ a:hover {
 .top {
     font-size: 1em;
     display: flex;
-    gap: 3em;
+    gap: 3.5em;
     align-items: center;
 }
 
-.x {
-    color: #333;
-    font-size: 1.5em;
-}
-
-.x:hover {
-    color: var(--primary-blue-clr);
+.top img {
     cursor: pointer;
 }
 
@@ -701,4 +702,55 @@ a:hover {
 .hamburger-pop-up img {
     justify-self: right;
     align-self: flex-end;
+    cursor: pointer;
+}
+
+/* Favourites pop-up */
+.favorites-pop-up {
+    max-width: min(90em, 100% - 1rem * 3);
+    background-color: white;
+    box-shadow: 1px 1px 7px #33333349;
+    margin: auto;
+    z-index: 1;
+    padding: 0 2em 2em;
+    border-radius: .6em;
+    background-image: url(img/wave-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.favorites-pop-up .notes li {
+    background-image: linear-gradient(to right, #3e49bb, #8790f2, #6571f1);
+}
+
+.fav-header {
+    font-size: 1em;
+    padding: 2em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav-header p {
+    font-weight: bold;
+    color: #999;
+}
+
+.fav-header i {
+    color: var(--primary-blue-clr);
+}
+
+.fav-notes i {
+    color: rgb(224, 223, 223);
+}
+
+.fav-notes .title,
+.fav-notes .content,
+.fav-notes .menu-x-date {
+    color: rgb(240, 230, 230);
+}
+
+.fav-header img {
+    cursor: pointer;
 }
