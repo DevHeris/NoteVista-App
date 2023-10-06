@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 :root {
     --primary-blue-clr: #6370ff;
@@ -33,7 +33,6 @@ html:focus-within {
 html,
 body {
     height: 100%;
-    font-family: 'Poppins', sans-serif;
 }
 
 /* Set core body defaults */
@@ -41,6 +40,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     background-image: url(Img/bg-pattern-desktop.svg);
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* A elements that don't have a class get default styles */
@@ -127,7 +127,6 @@ form {
 }
 
 .login-content h2 {
-    margin: 0.9em 0;
     color: #333;
     text-transform: uppercase;
     font-size: 2.9rem;
@@ -166,7 +165,7 @@ form {
     position: absolute;
     left: 0.625em;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-51%);
     color: #999;
     font-size: 1.125em;
     transition: .3s;
@@ -320,16 +319,13 @@ a:hover {
 /* utility classes */
 .placeholder-text::placeholder {
     color: #333;
-    font-family: cursive;
-    font-weight: bold;
-
+    font-size: 0.9em;
 }
-
 
 /* Header style */
 .header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: .5fr 1fr 2fr;
     grid-gap: 4em;
     justify-content: center;
     align-items: center;
@@ -337,6 +333,7 @@ a:hover {
     top: 0;
     border-radius: 0 0.5em 0.5em;
     background-color: white;
+    padding-top: .5em;
 }
 
 .header .logo-text {
@@ -352,7 +349,7 @@ a:hover {
 .search {
     border-radius: 0.5em;
     border: none;
-    height: 2.1em;
+    height: 2.5em;
     padding: 0.5em;
     background-color: #f1f3f4;
     transition: 0.4s;
@@ -385,6 +382,7 @@ a:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-weight: bold;
 }
 
 /* Add note style */
@@ -399,9 +397,12 @@ a:hover {
     grid-column: 2/4;
 }
 
-.home-container img {
-    margin-top: 12.3em;
+.home-img-container {
+    background-image: url(img/undraw_software_engineer_re_tnjc.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
     grid-column: 1/2;
+    background-position: center;
 }
 
 
@@ -419,8 +420,6 @@ a:hover {
     background-color: #ffffff;
     box-shadow: 1px 1px 7px #33333349;
     transition: 0.4s;
-    font-family: cursive;
-
 }
 
 .add-box:focus {
@@ -445,8 +444,6 @@ a:hover {
     box-shadow: 0 1px 6px #333;
     transition: .3s;
     border-top: 2px solid white;
-    font-family: cursive;
-    font-weight: bold;
 }
 
 .notes li:hover {
@@ -462,11 +459,13 @@ a:hover {
     min-height: 2em;
     font-size: 1.3em;
     color: black;
+    font-weight: 500;
 }
 
 .content {
     min-height: 10em;
     color: #333;
+    font-weight: 500;
 }
 
 .menu-x-date {
@@ -480,6 +479,7 @@ a:hover {
 .notes i:focus {
     color: rgb(9, 9, 195);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .hamburger-menu {
@@ -524,3 +524,141 @@ a:hover {
 }
 
 /* Pop up styles */
+
+/* add-note-pop-up */
+.add-note-pop-up {
+    max-width: min(37.5em, 100% - 1rem * 3);
+    margin: 1.5em auto;
+    height: 8.5em;
+    padding: 1em;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 7px #33333349;
+    transition: 0.4s;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+.add-note-pop-up input {
+    border: none;
+}
+
+.input-title,
+.take-note {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.take-note {
+    font-size: 0.85em;
+}
+
+.bottom-content {
+    color: #333;
+    font-size: 0.8em;
+    grid-row: 4/5;
+    justify-self: right;
+    display: flex;
+    grid-gap: 4em;
+    font-weight: 500;
+}
+
+.bottom-content>* {
+    padding: 0.4em;
+    text-shadow: 0 0 .5px #333;
+    width: 5em;
+    text-align: center;
+}
+
+.bottom-content>*:hover {
+    background-color: var(--primary-blue-clr);
+    transition: .4s;
+    color: white;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+.add-note-pop-up input:focus {
+    outline: none;
+}
+
+/* Profile pop-up */
+.profile-pop-up {
+    background-color: #ccd3e0;
+    background-image: url(img/blob-haikei.svg);
+    width: 25em;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2em;
+    padding: 1em;
+    box-shadow: 0px 0px 6px #33333397;
+    color: var(--primary-blue-clr);
+    font-weight: 500;
+    position: absolute;
+    margin: 1em;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.profile-pop-up>* {
+    margin: 1em;
+}
+
+.add-account {
+    background-color: white;
+    width: 90%;
+    text-align: center;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.add-account:hover {
+    background-color: var(--primary-blue-clr);
+    color: white;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.add-account i {
+    color: var(--primary-blue-clr);
+}
+
+.profile-img-container {
+    border-radius: 50%;
+    height: 9em;
+    width: 9em;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top {
+    font-size: 1em;
+    display: flex;
+    gap: 3em;
+    align-items: center;
+}
+
+.x {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.x:hover {
+    color: var(--primary-blue-clr);
+    cursor: pointer;
+}
+
+.greeting {
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.greeting span {
+    color: white;
+}
