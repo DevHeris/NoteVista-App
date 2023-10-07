@@ -399,10 +399,12 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
+
 }
 
 .note-container {
     grid-column: 2/4;
+
 }
 
 .home-img-container {
@@ -411,8 +413,8 @@ a:hover {
     background-size: contain;
     grid-column: 1/2;
     background-position: center;
+    height: 80vh;
 }
-
 
 .add-note-wrapper {
     max-width: min(37.5em, 100% - 1rem * 3);
@@ -444,7 +446,6 @@ a:hover {
 }
 
 .notes li {
-    background-image: linear-gradient(to right, #6370ff, #8790f2, #8992f0);
     flex: 1 1 calc(33.33% - 20px);
     padding: 1em;
     border-radius: 0.5em;
@@ -452,15 +453,21 @@ a:hover {
     box-shadow: 0 1px 6px #333;
     transition: .3s;
     border-top: 2px solid white;
+    background-image: url(img/blob-scene-haikei\ \(9\).svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 33em;
 }
 
 .notes li:hover {
-    background-image: linear-gradient(to right, var(--primary-blue-clr), #6771dc96);
     transform: translateY(-3%);
     transition-property: background-image, transform;
-    transition-duration: .3s, .3s;
-    transition-delay: 0.5s, 0s;
+    transition-duration: .1s, .1s;
     transition-timing-function: ease-out;
+    background-image: url(img/blob-scene-haikei\ \(1\).svg);
+    background-position: cover;
+    background-repeat: no-repeat;
+    transition: .3s;
 }
 
 .title {
@@ -478,15 +485,21 @@ a:hover {
 
 .menu-x-date {
     display: flex;
-    justify-content: space-between;
     border-top: 2px solid white;
     padding-top: 1em;
     color: whitesmoke;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3em;
 }
 
 .notes i:hover,
 .notes i:focus {
-    color: rgb(9, 9, 195);
+    color: var(--primary-blue-clr);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -498,6 +511,10 @@ a:hover {
 @media screen and (max-width:70.35em) {
     .home-container {
         display: block;
+    }
+
+    .home-img-container {
+        display: none;
     }
 
     .home-container img {
@@ -527,7 +544,7 @@ a:hover {
     }
 
     .menu-x-date {
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
 }
@@ -535,7 +552,7 @@ a:hover {
 /* Pop up styles */
 
 /* add-note-pop-up */
-.add-note-pop-up {
+.add-note-wrapper {
     max-width: min(37.5em, 100% - 1rem * 3);
     margin: 1.5em auto;
     height: 10em;
@@ -546,13 +563,13 @@ a:hover {
     box-shadow: 1px 1px 7px #33333349;
 }
 
-.add-note-pop-up form {
+.add-note-wrapper form {
     width: 100%;
     display: grid;
-    grid-template-rows: .5fr 1fr .5fr;
+    grid-template-rows: .5fr .5fr .5fr;
 }
 
-.add-note-pop-up input {
+.add-note-wrapper input {
     border: none;
 }
 
@@ -560,11 +577,26 @@ a:hover {
 .take-note {
     margin-bottom: 1em;
     width: 100%;
+    font-weight: bold;
+    color: #999;
+}
 
+.input-title {
+    font-size: 1em;
 }
 
 .take-note {
-    font-size: 0.95em;
+    font-size: 0.9em;
+}
+
+.input-title::placeholder,
+.take-note::placeholder {
+    color: #868686;
+    font-weight: bold;
+}
+
+.input-title::placeholder {
+    font-size: 1em;
 }
 
 .bottom-content {
@@ -576,7 +608,6 @@ a:hover {
     grid-gap: 4em;
     font-weight: 500;
 }
-
 
 
 .bottom-content>* {
@@ -600,20 +631,7 @@ a:hover {
     color: var(--primary-blue-clr);
 }
 
-.bottom-content .close {
-    background-color: white;
-
-    color: var(--primary-blue-clr);
-    border: 1px solid var(--primary-blue-clr);
-    cursor: pointer;
-}
-
-.bottom-content .close:hover {
-    background-color: var(--primary-blue-clr);
-    color: white;
-}
-
-.add-note-pop-up input:focus {
+.add-note-wrapper input:focus {
     outline: none;
 }
 

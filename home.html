@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <header class="header">
         <div class="logo-wrapper">
             <img src="img/bg-pattern-intro-mobile.svg" alt="logo" class="logo" width="250" height="100">
@@ -35,11 +36,21 @@
 
     </header>
 
-    <div class="click-to-close-pop-up">
-        <section class="add-note-wrapper">
-            <input type="text" placeholder="Take a note..." class="add-box placeholder-text" id="add-box">
-        </section>
-    </div>
+    <section class="add-note-wrapper">
+        <form class="note-form">
+            <div class="title-div">
+                <input type="text" name="title" id="title" class="input-title placeholder-text" placeholder="Title">
+            </div>
+            <div class="take-note-div">
+                <input type="text" name="take-note" id="take-note" class="take-note placeholder-text" autofocus="on"
+                    placeholder="Take a note...">
+            </div>
+            <div class="bottom-content">
+                <button class="add" type="submit">Add</button>
+            </div>
+        </form>
+    </section>
+
 
 
     <!-- <div class="hamburger-pop-up">
@@ -52,23 +63,6 @@
             </ul>
         </nav>
     </div> -->
-
-    <!-- <div class="add-note-pop-up">
-            <form class="note-form">
-                <div class="title-div">
-                    <input type="text" name="title" id="title" class="input-title placeholder-text" placeholder="Title">
-                </div>
-                <div class="take-note-div">
-                    <input type="text" name="take-note" id="take-note" class="take-note placeholder-text" autofocus="on"
-                        placeholder="Take a note...">
-                </div>
-                <div class="bottom-content">
-                    <p class="close">Close</p>
-                    <button class="add" type="submit">Add</button>
-                </div>
-            </form>
-        </div> -->
-
 
     <!-- <section class="favorites-pop-up">
             <div class="fav-header">
@@ -129,35 +123,26 @@
 
     <div class="home-container">
         <div class="home-img-container">
+
         </div>
 
         <section class="note-container">
             <ul class="notes" id="note-list">
-                <!-- <li>
-                    <p class="title">Title</p>
-                    <p class="content">Content of your note...</p>
-                    <p class="menu-x-date">October 5, 2023 <i class="fa-regular fa-star favorite"></i><i
-                            class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                </li>
                 <li>
-                    <p class="title">Title</p>
-                    <p class="content">Content of your note...</p>
-                    <p class="menu-x-date">October 5, 2023 <i class="fa-regular fa-star favorite"></i><i
-                            class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                </li> -->
-
-                <!-- <li>
-                                    <p class="title">Title</p>
-                                    <p class="content">Content of your note...</p>
-                                    <p class="menu-x-date">October 5, 2023 <i class="fa-regular fa-star favorite"></i><i
-                                            class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                                </li> -->
-
+                    <p class="title">Welcome to NoteVista</p>
+                    <p class="content">Ready to capture your thoughts and ideas?</p>
+                    <div class="menu-x-date">
+                        <p class="date"><!-- October 5, 2023 --></p>
+                        <div class="menu">
+                            <i class="fa-regular fa-star favorite"></i>
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <i class="fa-regular fa-trash-can"></i>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </section>
     </div>
-
-
 
     <script src="script.js"></script>
 </body>

@@ -1,90 +1,149 @@
-const notePrompt = document.querySelector(".add-box");
+const titleInput = document.querySelector("#title");
+const contentInput = document.querySelector("#take-note");
+const inputForm = document.querySelector(".note-form");
 const noteList = document.getElementById("note-list");
 
-function createNewAddBox(event) {
-  const addNotePopUp = document.createElement("div");
-  addNotePopUp.className = "add-note-pop-up";
+function displayNotes() {
+  const titlesFromStorage = getTitlesFromStorage();
+  const contentsFromStorage = getContentsFromStorage();
 
-  const form = document.createElement("form");
-  form.className = "note-form";
+  // Trick for using for each  on two arrays at the same time
+  titlesFromStorage.forEach((title, index) => {
+    const content = contentsFromStorage[index];
+    addNoteToDOM(title, content);
+  });
+}
 
-  const childDiv1 = createDiv("title-div");
-  const childDiv2 = createDiv("take-note-div");
-  const childDiv3 = createDiv("bottom-content");
+function onAddNoteSubmit(event) {
+  event.preventDefault();
 
-  childDiv1.innerHTML = ` <input type="text" name="title" id="title" class="input-title placeholder-text" placeholder="Title">`;
+  const newTitle = titleInput.value;
+  const newContent = contentInput.value;
 
-  childDiv2.innerHTML = `<input type="text" name="take-note" id="take-note" class="take-note placeholder-text" autofocus="on"
-placeholder="Take a note...">`;
-
-  childDiv3.innerHTML = `  <p class="close">Close</p>
-<button class="add" type="submit">Add</button>`;
-
-  form.appendChild(childDiv1);
-  form.appendChild(childDiv2);
-  form.appendChild(childDiv3);
-
-  addNotePopUp.appendChild(form);
-
-  if (event.target === notePrompt) {
-    const addNoteWrapper = document.querySelector(".add-note-wrapper");
-    addNoteWrapper.outerHTML = `${addNotePopUp.outerHTML}`;
-
-    const noteForm = document.querySelector(".note-form");
-    noteForm.addEventListener("submit", createNewAddBox);
+  // Input validation
+  if (newContent === "" && newTitle === "") {
+    alert("No note to be added");
   }
 
-  let noteTitleInput = document.getElementById("title");
-  let noteContentInput = document.getElementById("take-note");
+  // Create Note DOM element
+  addNoteToDOM(newTitle, newContent);
 
-  function createNewAddBox(event) {
-    event.preventDefault();
+  // Add Title to Local Storage
+  addTitleToStorage(newTitle);
 
-    let newNoteTitle = noteTitleInput.value;
-    let newNoteContent = noteContentInput.value;
+  // Add Content to Local Storage
+  addContentToStorage(newContent);
 
-    // Validate Input
-    if (newNoteContent === "" && newNoteTitle === "") {
-      alert("Please add title or content of this note");
+  // Clear typed-in value on form submission
+  titleInput.value = "";
+  contentInput.value = "";
+}
 
-      return;
-    }
+function addNoteToDOM(title, content) {
+  // Create new Note li
+  const li = document.createElement("li");
+  li.innerHTML = ` <p class="title">${title}</p>
+ <p class="content">${content}</p>
+ <div class="menu-x-date">
+     <p class="date">October 5, 2023</p>
+     <div class="menu">
+         <i class="fa-regular fa-star favorite"></i>
+         <i class="fa-regular fa-pen-to-square"></i>
+         <i class="fa-regular fa-trash-can"></i>
+     </div>
+ </div>`;
 
-    // Create note DOM element
-    addNoteToDOM(newNoteTitle, newNoteContent);
+  noteList.prepend(li);
+}
+
+function addTitleToStorage(title) {
+  let titlesFromStorage = getTitlesFromStorage();
+
+  // Add new title to array
+  titlesFromStorage.push(title);
+
+  // Convert to JSON String and set to local storage
+  localStorage.setItem("titles", JSON.stringify(titlesFromStorage));
+}
+
+function addContentToStorage(content) {
+  let contentsFromStorage = getContentsFromStorage();
+
+  // Add new content to array
+  contentsFromStorage.push(content);
+
+  // Convert to JSON String and set to local storage
+  localStorage.setItem("contents", JSON.stringify(contentsFromStorage));
+}
+
+function getTitlesFromStorage(param) {
+  let titlesFromStorage;
+
+  if (localStorage.getItem("titles") === null) {
+    titlesFromStorage = [];
+  } else {
+    //Parse converts to an actual array
+    titlesFromStorage = JSON.parse(localStorage.getItem("titles"));
   }
 
-  function addNoteToDOM(title, content) {
-    // Create list notes
-    const li = document.createElement("li");
+  return titlesFromStorage;
+}
 
-    li.innerHTML = ` <p class="title">${title}</p>
-    <p class="content">${content}</p>
-    <p class="menu-x-date">October 5, 2023 <i class="fa-regular fa-star favorite"></i><i
-    class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>`;
+function getContentsFromStorage() {
+  let contentsFromStorage;
 
-    // Add li to the DOM
-    noteList.prepend(li);
+  if (localStorage.getItem("contents") === null) {
+    contentsFromStorage = [];
+  } else {
+    //Parse converts to an actual array
+    contentsFromStorage = JSON.parse(localStorage.getItem("contents"));
+  }
 
-    noteContentInput.value = "";
-    noteTitleInput.value = "";
+  return contentsFromStorage;
+}
+
+function onclickNote(event) {
+  if (event.target.className === "fa-regular fa-trash-can") {
+    removeNote(event.target.parentElement.parentElement.parentElement);
   }
 }
 
-function createDiv(classes) {
-  const div = document.createElement("div");
+function removeNote(note) {
+  if (confirm("Are you sure you want to delete this note?")) {
+    // Remove note from DOM
+    note.remove();
 
-  div.className = classes;
-
-  return div;
+    // Remove note from local storage
+    removeNoteFromStorage(
+      note.firstElementChild.textContent,
+      note.firstElementChild.nextElementSibling.textContent
+    );
+  }
 }
 
-// Add Notes
+function removeNoteFromStorage(title, content) {
+  let titlesFromStorage = getTitlesFromStorage();
+  let contentsFromStorage = getContentsFromStorage();
 
-// Initialize Homepage
+  // Filter Out title to be removed from storage
+  titlesFromStorage = titlesFromStorage.filter((t) => t !== title);
+
+  //MEANING GIVE ME AN ARRAY IN WHICH THE THE GUYS TO BE REMOVED ARE NOT A PART OF. THE GUYS TO BE REMOVED ARE THE ONES IN THE removeNoteFromStorage() PARAMETER/ARGUMENT
+
+  // Filter Out content to be removed from storage
+  contentsFromStorage = contentsFromStorage.filter((c) => c !== content);
+
+  // new to local Storage
+  localStorage.setItem("titles", JSON.stringify(titlesFromStorage));
+  localStorage.setItem("contents", JSON.stringify(contentsFromStorage));
+}
+
+// Initialize Application
 function init() {
-  // Event listeners
-  document.body.addEventListener("click", createNewAddBox);
+  // Event Listeners
+  inputForm.addEventListener("submit", onAddNoteSubmit);
+  noteList.addEventListener("click", onclickNote);
+  document.addEventListener("DOMContentLoaded", displayNotes);
 }
 
 init();
