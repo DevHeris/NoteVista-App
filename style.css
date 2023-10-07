@@ -549,9 +549,6 @@ a:hover {
 
 }
 
-/* Pop up styles */
-
-/* add-note-pop-up */
 .add-note-wrapper {
     max-width: min(37.5em, 100% - 1rem * 3);
     margin: 1.5em auto;
@@ -625,10 +622,12 @@ a:hover {
     color: white;
 }
 
-.bottom-content .add:hover {
+.bottom-content .add:hover,
+.bottom-content .add:focus {
     background-color: white;
     border: 1px solid var(--primary-blue-clr);
     color: var(--primary-blue-clr);
+    outline: none;
 }
 
 .add-note-wrapper input:focus {
