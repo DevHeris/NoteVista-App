@@ -87,7 +87,6 @@ function init() {
     input.addEventListener("focus", addClass);
     input.addEventListener("blur", removeClass);
   });
-
   button.addEventListener("click", onButtonClick);
 }
 

@@ -466,13 +466,13 @@ a:hover {
 .title {
     min-height: 2em;
     font-size: 1.3em;
-    color: black;
+    color: whitesmoke;
     font-weight: 500;
 }
 
 .content {
     min-height: 10em;
-    color: #333;
+    color: white;
     font-weight: 500;
 }
 
@@ -481,6 +481,7 @@ a:hover {
     justify-content: space-between;
     border-top: 2px solid white;
     padding-top: 1em;
+    color: whitesmoke;
 }
 
 .notes i:hover,
@@ -537,15 +538,18 @@ a:hover {
 .add-note-pop-up {
     max-width: min(37.5em, 100% - 1rem * 3);
     margin: 1.5em auto;
-    height: 8.5em;
+    height: 10em;
     padding: 1em;
     border-radius: 0.5em;
     border: none;
     background-color: #ffffff;
     box-shadow: 1px 1px 7px #33333349;
-    transition: 0.4s;
+}
+
+.add-note-pop-up form {
+    width: 100%;
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: .5fr 1fr .5fr;
 }
 
 .add-note-pop-up input {
@@ -556,10 +560,11 @@ a:hover {
 .take-note {
     margin-bottom: 1em;
     width: 100%;
+
 }
 
 .take-note {
-    font-size: 0.85em;
+    font-size: 0.95em;
 }
 
 .bottom-content {
@@ -572,19 +577,40 @@ a:hover {
     font-weight: 500;
 }
 
+
+
 .bottom-content>* {
     padding: 0.4em;
     text-shadow: 0 0 .5px #333;
     width: 5em;
     text-align: center;
+    border-radius: 0.2em;
+    transition: .4s;
 }
 
-.bottom-content>*:hover {
+.bottom-content .add {
     background-color: var(--primary-blue-clr);
-    transition: .4s;
+    border: none;
     color: white;
-    border-radius: 0.2em;
+}
+
+.bottom-content .add:hover {
+    background-color: white;
+    border: 1px solid var(--primary-blue-clr);
+    color: var(--primary-blue-clr);
+}
+
+.bottom-content .close {
+    background-color: white;
+
+    color: var(--primary-blue-clr);
+    border: 1px solid var(--primary-blue-clr);
     cursor: pointer;
+}
+
+.bottom-content .close:hover {
+    background-color: var(--primary-blue-clr);
+    color: white;
 }
 
 .add-note-pop-up input:focus {
