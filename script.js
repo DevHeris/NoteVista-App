@@ -2,6 +2,7 @@ const titleInput = document.querySelector("#title");
 const contentInput = document.querySelector("#take-note");
 const inputForm = document.querySelector(".note-form");
 const noteList = document.getElementById("note-list");
+const noteFilter = document.getElementById("search");
 
 function displayNotes() {
   const titlesFromStorage = getTitlesFromStorage();
@@ -12,6 +13,24 @@ function displayNotes() {
     const content = contentsFromStorage[index];
     addNoteToDOM(title, content);
   });
+}
+
+function filterNotes(event) {
+  const text = event.target.value.toLowerCase();
+  const notes = noteList.querySelectorAll("li");
+
+  notes.forEach((note) => {
+    const noteTitle = note.firstElementChild.textContent.toLowerCase();
+    const noteContent =
+      note.firstElementChild.nextElementSibling.textContent.toLowerCase();
+
+    if (noteTitle.indexOf(text) !== -1 || noteContent.indexOf(text) !== -1) {
+      note.style.display = "block";
+    } else {
+      note.style.display = "none";
+    }
+  });
+  console.log("works");
 }
 
 function onAddNoteSubmit(event) {
@@ -133,7 +152,7 @@ function removeNoteFromStorage(title, content) {
   // Filter Out content to be removed from storage
   contentsFromStorage = contentsFromStorage.filter((c) => c !== content);
 
-  // new to local Storage
+  // New local Storage
   localStorage.setItem("titles", JSON.stringify(titlesFromStorage));
   localStorage.setItem("contents", JSON.stringify(contentsFromStorage));
 }
@@ -143,6 +162,7 @@ function init() {
   // Event Listeners
   inputForm.addEventListener("submit", onAddNoteSubmit);
   noteList.addEventListener("click", onclickNote);
+  noteFilter.addEventListener("input", filterNotes);
   document.addEventListener("DOMContentLoaded", displayNotes);
 }
 

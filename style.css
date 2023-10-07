@@ -459,6 +459,12 @@ a:hover {
     max-width: 33em;
 }
 
+@media (max-width:56.25em) {
+    .notes li {
+        max-width: none;
+    }
+}
+
 .notes li:hover {
     transform: translateY(-3%);
     transition-property: background-image, transform;
