@@ -57,6 +57,12 @@ svg {
 }
 
 /* styles */
+
+::selection {
+    color: white;
+    background-color: var(--primary-blue-clr);
+}
+
 .wave {
     position: fixed;
     bottom: 0;
@@ -753,4 +759,21 @@ a:hover {
 
 .fav-header img {
     cursor: pointer;
+}
+
+/* Wecome alert box */
+.welcome-message {
+    background-color: var(--primary-blue-clr);
+    max-width: 20em;
+    margin: auto;
+    margin-bottom: 0;
+    padding: .8em;
+    border-radius: 1em;
+    border: 2px solid rgb(250, 250, 250);
+    box-shadow: 1px 1px 7px #33333349;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: white;
+    transform: translateY(30%);
 }
