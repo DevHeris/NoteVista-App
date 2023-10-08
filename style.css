@@ -377,23 +377,27 @@ a:hover {
 
 }
 
-#primary-navigation a {
-    padding: 1em 1em 1em 0;
-    border-radius: .3em;
-    background-color: var(--primary-blue-clr);
-    color: white;
+@media (min-width:56.25em) {
+    #primary-navigation a {
+        padding: 1em 1em 1em 0;
+        border-radius: .3em;
+        background-color: var(--primary-blue-clr);
+        color: white;
+    }
+
+    #primary-navigation a i {
+        padding: 1em;
+        border-radius: .3em;
+        color: white;
+    }
+
+    #primary-navigation a:hover {
+        background-color: #8790f5;
+        border: 1px solid var(--primary-blue-clr);
+    }
+
 }
 
-#primary-navigation a i {
-    padding: 1em;
-    border-radius: .3em;
-    color: white;
-}
-
-#primary-navigation a:hover {
-    background-color: #8790f5;
-    border: 1px solid var(--primary-blue-clr);
-}
 
 .mobile-nav-toggle {
     /* Completely removes it from the DOM */
@@ -410,10 +414,6 @@ a:hover {
     margin: 0;
 }
 
-.primary-navigation a>[aria-hidden="true"] {
-    margin-inline-end: .75em;
-}
-
 @media (max-width:56.25em) {
     .primary-navigation {
         --gap: 3em;
@@ -425,7 +425,7 @@ a:hover {
         flex-direction: column;
         padding: min(30vh, 10rem) 2rem;
 
-        background-color: hsl(0 0% 0% / 0.5);
+        background-color: hsl(0 0% 0%, 0.5);
         backdrop-filter: blur(1rem);
 
         /* Move off the page */
@@ -464,6 +464,10 @@ a:hover {
 
     .mobile-nav-toggle[aria-expanded="true"] {
         background-image: url('img/icon-close-menu.svg');
+    }
+
+    .primary-navigation a>[aria-hidden="true"] {
+        margin-inline-end: 0.75em;
     }
 }
 
@@ -522,6 +526,9 @@ a:hover {
 .notes li {
     flex: 1 1 calc(33.33% - 20px);
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     border-radius: 0.5em;
     list-style: none;
     box-shadow: 0 1px 6px #333;
@@ -552,9 +559,10 @@ a:hover {
 
 .title {
     min-height: 2em;
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: whitesmoke;
     font-weight: 500;
+    margin-bottom: .2em;
 }
 
 .content {
@@ -575,6 +583,10 @@ a:hover {
     display: flex;
     justify-content: space-evenly;
     gap: 3em;
+}
+
+.date {
+    cursor: pointer;
 }
 
 .notes i:hover,
@@ -673,14 +685,13 @@ a:hover {
     font-size: 0.8em;
     grid-row: 4/5;
     justify-self: right;
-    display: flex;
     grid-gap: 4em;
     font-weight: 500;
 }
 
 
 .bottom-content>* {
-    padding: 0.4em;
+    padding: 0.6em;
     text-shadow: 0 0 .5px #333;
     width: 5em;
     text-align: center;
@@ -692,6 +703,11 @@ a:hover {
     background-color: var(--primary-blue-clr);
     border: none;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    width: 100%;
 }
 
 .bottom-content .add:hover,
@@ -850,4 +866,26 @@ a:hover {
     font-weight: 500;
     color: white;
     transform: translateY(30%);
+    transition: transform 250ms ease-in;
+}
+
+/* Edit mode styles */
+.edit-mode {
+    background-color: #8790f2;
+    border: 2px solid black;
+    box-shadow: 4px 4px 5em rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+.edit-mode .title,
+.edit-mode .content {
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+/* Icon styles within edit mode */
+.edit-mode i {
+    color: #fff;
 }

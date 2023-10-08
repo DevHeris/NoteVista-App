@@ -5,6 +5,9 @@ const noteList = document.getElementById("note-list");
 const noteFilter = document.getElementById("search");
 const primaryNav = document.querySelector(".primary-navigation");
 const navToggle = document.querySelector(".mobile-nav-toggle");
+const formBtn = document.querySelector(".add");
+
+let isEditMode = false;
 
 function displayNotes() {
   const titlesFromStorage = getTitlesFromStorage();
@@ -45,6 +48,24 @@ function onAddNoteSubmit(event) {
     alert("No note to be added");
   }
 
+  if (isEditMode) {
+    const noteToEdit = document.querySelector(".edit-mode");
+
+    // Remove from local storage
+    removeNoteFromStorage(
+      noteToEdit.firstElementChild.textContent,
+      noteToEdit.firstElementChild.nextElementSibling.textContent
+    );
+
+    noteToEdit.classList.remove("edit-mode");
+
+    //Remove from DOM
+    noteToEdit.remove();
+
+    // Set edit mode back to false
+    isEditMode = false;
+  }
+
   // Create Note DOM element
   addNoteToDOM(newTitle, newContent);
 
@@ -54,9 +75,7 @@ function onAddNoteSubmit(event) {
   // Add Content to Local Storage
   addContentToStorage(newContent);
 
-  // Clear typed-in value on form submission
-  titleInput.value = "";
-  contentInput.value = "";
+  resetUI();
 }
 
 function addNoteToDOM(title, content) {
@@ -96,7 +115,7 @@ function addContentToStorage(content) {
   localStorage.setItem("contents", JSON.stringify(contentsFromStorage));
 }
 
-function getTitlesFromStorage(param) {
+function getTitlesFromStorage() {
   let titlesFromStorage;
 
   if (localStorage.getItem("titles") === null) {
@@ -125,6 +144,40 @@ function getContentsFromStorage() {
 function onclickNote(event) {
   if (event.target.className === "fa-regular fa-trash-can") {
     removeNote(event.target.parentElement.parentElement.parentElement);
+  } else if (
+    event.target.parentElement.tagName === "LI" ||
+    event.target.className === "fa-regular fa-pen-to-square" ||
+    event.target.className === "date"
+  ) {
+    setNoteToEditMode(event.target.parentElement);
+  }
+}
+
+function setNoteToEditMode(note) {
+  console.log(note);
+  isEditMode = true;
+
+  noteList.querySelectorAll("li").forEach((note) => {
+    note.classList.remove("edit-mode");
+  });
+
+  formBtn.innerHTML = `<i class="fa-solid fa-pen"></i> Update`;
+  formBtn.style.backgroundColor = "green";
+
+  if (note.tagName === "LI") {
+    note.classList.add("edit-mode");
+    titleInput.value = note.firstElementChild.textContent;
+    contentInput.value = note.firstElementChild.nextElementSibling.textContent;
+  } else if (note.className === "menu-x-date") {
+    note.parentElement.classList.add("edit-mode");
+    titleInput.value = note.parentElement.firstElementChild.textContent;
+    contentInput.value = note.parentElement.nextElementSibling.textContent;
+  } else if (note.className === "menu") {
+    note.parentElement.parentElement.classList.add("edit-mode");
+    titleInput.value =
+      note.parentElement.parentElement.firstElementChild.textContent;
+    contentInput.value =
+      note.parentElement.parentElement.firstElementChild.nextElementSibling.textContent;
   }
 }
 
@@ -171,6 +224,17 @@ function toggleNav() {
   }
 }
 
+function resetUI() {
+  titleInput.value = "";
+  contentInput.value = "";
+
+  formBtn.innerHTML = ` <i class="fa-solid fa-plus"></i> Add`;
+  formBtn.style.backgroundColor = "#6370ff";
+  formBtn.style.color = "white";
+
+  isEditMode = false;
+}
+
 // Initialize Application
 function init() {
   // Event Listeners
@@ -179,6 +243,8 @@ function init() {
   noteFilter.addEventListener("input", filterNotes);
   document.addEventListener("DOMContentLoaded", displayNotes);
   navToggle.addEventListener("click", toggleNav);
+
+  resetUI();
 }
 
 init();
