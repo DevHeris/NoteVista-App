@@ -3,6 +3,8 @@ const contentInput = document.querySelector("#take-note");
 const inputForm = document.querySelector(".note-form");
 const noteList = document.getElementById("note-list");
 const noteFilter = document.getElementById("search");
+const primaryNav = document.querySelector(".primary-navigation");
+const navToggle = document.querySelector(".mobile-nav-toggle");
 
 function displayNotes() {
   const titlesFromStorage = getTitlesFromStorage();
@@ -30,7 +32,6 @@ function filterNotes(event) {
       note.style.display = "none";
     }
   });
-  console.log("works");
 }
 
 function onAddNoteSubmit(event) {
@@ -157,6 +158,19 @@ function removeNoteFromStorage(title, content) {
   localStorage.setItem("contents", JSON.stringify(contentsFromStorage));
 }
 
+function toggleNav() {
+  const visibility = primaryNav.getAttribute("data-visible");
+
+  if (visibility === "false") {
+    primaryNav.setAttribute("data-visible", true);
+    navToggle.setAttribute("aria-expanded", true);
+    // Note that aria expanded is just to tell screen readers that the nav now visible
+  } else if (visibility === "true") {
+    primaryNav.setAttribute("data-visible", false);
+    navToggle.setAttribute("aria-expanded", false);
+  }
+}
+
 // Initialize Application
 function init() {
   // Event Listeners
@@ -164,6 +178,7 @@ function init() {
   noteList.addEventListener("click", onclickNote);
   noteFilter.addEventListener("input", filterNotes);
   document.addEventListener("DOMContentLoaded", displayNotes);
+  navToggle.addEventListener("click", toggleNav);
 }
 
 init();

@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <header class="header">
         <div class="logo-wrapper">
             <img src="img/bg-pattern-intro-mobile.svg" alt="logo" class="logo" width="250" height="100">
@@ -25,15 +24,30 @@
 
         <input type="search" class="search placeholder-text" id="search" name="search" autocomplete="on"
             placeholder="Search">
-        <img src="img/icon-menu.svg" alt="menu" class="hamburger-menu">
-        <nav class="nav-links">
-            <ul class="nav-ul">
-                <li><i class="fas fa-user"></i> &nbsp; <a href="#">Profile</a></li>
-                <li><i class="fa-solid fa-star favorite"></i> &nbsp; <a href="#">Favorites</a></li>
-                <li><i class="fa-solid fa-right-from-bracket"></i> &nbsp;<a href="login.html">Log Out</a></li>
+
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+        </button>
+
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                <li class="active">
+                    <a href="#" class="">
+                        <span aria-hidden="true"> <i class="fas fa-user"></i></span>Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="">
+                        <span aria-hidden="true"> <i class="fa-solid fa-star favorite"></i></span>Favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="">
+                        <span aria-hidden="true"> <i class="fa-solid fa-right-from-bracket"></i></span>Log out
+                    </a>
+                </li>
             </ul>
         </nav>
-
     </header>
 
     <section class="add-note-wrapper">
@@ -51,19 +65,6 @@
         </form>
     </section>
 
-
-
-    <!-- <div class="hamburger-pop-up">
-        <img src="img/icon-close-menu.svg" alt="close-menu">
-        <nav class="nav-links-hamburger">
-            <ul class="nav-ul-ham">
-                <li><i class="fas fa-user"></i> &nbsp; <a href="#">Profile</a></li>
-                <li><i class="fa-solid fa-star favorite"></i> &nbsp; <a href="#">Favorites</a></li>
-                <li><i class="fa-solid fa-right-from-bracket"></i> &nbsp;<a href="login.html">Log Out</a></li>
-            </ul>
-        </nav>
-    </div> -->
-
     <!-- <section class="favorites-pop-up">
             <div class="fav-header">
                 <i class="fa-solid fa-star favorite"></i>
@@ -72,30 +73,6 @@
             </div>
             <div class="fav-lists">
                 <ul class="fav-notes notes" id="note-list">
-                    <li>
-                        <p class="title">Title</p>
-                        <p class="content">Content of your note...</p>
-                        <p class="menu-x-date">October 5, 2023 <i class="fa-solid fa-star favorite"></i><i
-                                class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                    </li>
-                    <li>
-                        <p class="title">Title</p>
-                        <p class="content">Content of your note...</p>
-                        <p class="menu-x-date">October 5, 2023 <i class="fa-solid fa-star favorite"></i><i
-                                class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                    </li>
-                    <li>
-                        <p class="title">Title</p>
-                        <p class="content">Content of your note...</p>
-                        <p class="menu-x-date">October 5, 2023 <i class="fa-solid fa-star favorite"></i><i
-                                class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                    </li>
-                    <li>
-                        <p class="title">Title</p>
-                        <p class="content">Content of your note...</p>
-                        <p class="menu-x-date">October 5, 2023 <i class="fa-solid fa-star favorite"></i><i
-                                class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                    </li>
                     <li>
                         <p class="title">Title</p>
                         <p class="content">Content of your note...</p>
@@ -131,17 +108,17 @@
                 <li>
                     <p class="title">Welcome to NoteVista</p>
                     <p class="content">Ready to capture your thoughts and ideas?</p>
-                    <!-- <div class="menu-x-date">
+                    <!--  <div class="menu-x-date">
                         <p class="date">October 5, 2023</p>
                         <div class="menu">
                             <i class="fa-regular fa-star favorite"></i>
                             <i class="fa-regular fa-pen-to-square"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                        </div> -->
-    </div>
-    </li>
-    </ul>
-    </section>
+                        </div>
+                    </div> -->
+                </li>
+            </ul>
+        </section>
     </div>
 
     <script src="script.js"></script>
