@@ -32,83 +32,67 @@
         <nav>
             <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
                 <li class="active">
-                    <a href="#" class="">
+                    <a href="#" class="profile">
                         <span aria-hidden="true"> <i class="fas fa-user"></i></span>Profile
                     </a>
+                    <div class="profile-sub-menu-wrap" id="sub-menu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <img src="img/user.png" alt="user">
+                                <h2>Inioluwa Badairo</h2>
+                            </div>
+                            <hr>
+
+                            <a href="#" class="sub-menu-link">
+                                <p>Edit Profile</p>
+                                <span> <i class="fa-regular fa-pen-to-square"></i></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <p>Add another account</p>
+                                <span> <i class="fa-solid fa-square-plus"></i></span>
+                            </a>
+                        </div>
+                    </div>
                 </li>
+
                 <li>
-                    <a href="#" class="">
-                        <span aria-hidden="true"> <i class="fa-solid fa-star favorite"></i></span>Favorites
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="">
+                    <a href="login.html" class="Log-out">
                         <span aria-hidden="true"> <i class="fa-solid fa-right-from-bracket"></i></span>Log out
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
+    <section class="notes-section">
+        <section class="add-note-wrapper">
+            <form class="note-form">
+                <div class="title-div">
+                    <input type="text" name="title" id="title" class="input-title placeholder-text" placeholder="Title">
+                </div>
+                <div class="take-note-div">
+                    <textarea name="take-note" id="take-note" cols="30" rows="10" class="take-note placeholder-text"
+                        autofocus="on" placeholder="Take a note..."></textarea>
+                    <!-- <input type="text" name="take-note" id="take-note" class="take-note placeholder-text" autofocus="on"
+                                            placeholder="Take a note..."> -->
+                </div>
+                <div class="bottom-content">
+                    <button class="add" type="submit"> <i class="fa-solid fa-plus"></i> Add</button>
+                </div>
+            </form>
+        </section>
 
-    <section class="add-note-wrapper">
-        <form class="note-form">
-            <div class="title-div">
-                <input type="text" name="title" id="title" class="input-title placeholder-text" placeholder="Title">
-            </div>
-            <div class="take-note-div">
-                <input type="text" name="take-note" id="take-note" class="take-note placeholder-text" autofocus="on"
-                    placeholder="Take a note...">
-            </div>
-            <div class="bottom-content">
-                <button class="add" type="submit"> <i class="fa-solid fa-plus"></i> Add</button>
-            </div>
-        </form>
-    </section>
 
-    <!-- <section class="favorites-pop-up">
-            <div class="fav-header">
-                <i class="fa-solid fa-star favorite"></i>
-                <p>Your Favorite Notes</p>
-                <img src="img/icon-close-menu.svg" alt="close-menu">
+        <div class="home-container">
+            <div class="home-img-container">
+
             </div>
-            <div class="fav-lists">
-                <ul class="fav-notes notes" id="note-list">
+
+            <section class="note-container">
+                <ul class="notes" id="note-list">
                     <li>
-                        <p class="title">Title</p>
-                        <p class="content">Content of your note...</p>
-                        <p class="menu-x-date">October 5, 2023 <i class="fa-solid fa-star favorite"></i><i
-                                class="fa-regular fa-pen-to-square"></i><i class="fa-regular fa-trash-can"></i></p>
-                    </li>
-            </div>
-        </section> -->
-
-
-    <!-- <div class="profile-pop-up">
-        <div class="top">
-            <p class="email">badairoinioluwa578@gmail.com </p>
-            <img src="img/icon-close-menu.svg" alt="close-menu">
-        </div>
-
-        <div class="profile-img-container">
-            <img src="img/user.png" alt="user">
-        </div>
-        <p class="greeting">Hi, Ini<span>oluwa!</span> </p>
-        <p class="add-account">
-            <i class="fa-solid fa-square-plus"></i> &nbsp;Add another account
-        </p>
-    </div> -->
-
-    <div class="home-container">
-        <div class="home-img-container">
-
-        </div>
-
-        <section class="note-container">
-            <ul class="notes" id="note-list">
-                <li>
-                    <p class="title">Welcome to NoteVista</p>
-                    <p class="content">Ready to capture your thoughts and ideas?</p>
-                    <!-- <div class="menu-x-date">
+                        <p class="title">Welcome to NoteVista</p>
+                        <p class="content">Ready to capture your thoughts and ideas?</p>
+                        <!-- <div class="menu-x-date">
                                             <p class="date">October 5, 2023</p>
                                             <div class="menu">
                                                 <i class="fa-regular fa-star favorite"></i>
@@ -116,11 +100,11 @@
                                                 <i class="fa-regular fa-trash-can"></i>
                                             </div>
                                         </div> -->
-                </li>
-            </ul>
-        </section>
-    </div>
-
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </section>
     <script src="script.js"></script>
 </body>
 

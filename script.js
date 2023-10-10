@@ -6,6 +6,8 @@ const noteFilter = document.getElementById("search");
 const primaryNav = document.querySelector(".primary-navigation");
 const navToggle = document.querySelector(".mobile-nav-toggle");
 const formBtn = document.querySelector(".add");
+const profileNavLink = document.querySelector(".profile");
+const profileSubMenu = document.getElementById("sub-menu");
 
 let isEditMode = false;
 
@@ -46,6 +48,7 @@ function onAddNoteSubmit(event) {
   // Input validation
   if (newContent === "" && newTitle === "") {
     alert("No note to be added");
+    return;
   }
 
   if (isEditMode) {
@@ -84,9 +87,8 @@ function addNoteToDOM(title, content) {
   li.innerHTML = ` <p class="title">${title}</p>
  <p class="content">${content}</p>
  <div class="menu-x-date">
-     <p class="date">October 5, 2023</p>
+     <p class="date"></p>
      <div class="menu">
-         <i class="fa-regular fa-star favorite"></i>
          <i class="fa-regular fa-pen-to-square"></i>
          <i class="fa-regular fa-trash-can"></i>
      </div>
@@ -154,7 +156,6 @@ function onclickNote(event) {
 }
 
 function setNoteToEditMode(note) {
-  console.log(note);
   isEditMode = true;
 
   noteList.querySelectorAll("li").forEach((note) => {
@@ -213,7 +214,6 @@ function removeNoteFromStorage(title, content) {
 
 function toggleNav() {
   const visibility = primaryNav.getAttribute("data-visible");
-
   if (visibility === "false") {
     primaryNav.setAttribute("data-visible", true);
     navToggle.setAttribute("aria-expanded", true);
@@ -222,6 +222,10 @@ function toggleNav() {
     primaryNav.setAttribute("data-visible", false);
     navToggle.setAttribute("aria-expanded", false);
   }
+}
+
+function toggleProfile(event) {
+  profileSubMenu.classList.toggle("toggle-profile-menu");
 }
 
 function resetUI() {
@@ -241,8 +245,9 @@ function init() {
   inputForm.addEventListener("submit", onAddNoteSubmit);
   noteList.addEventListener("click", onclickNote);
   noteFilter.addEventListener("input", filterNotes);
-  document.addEventListener("DOMContentLoaded", displayNotes);
   navToggle.addEventListener("click", toggleNav);
+  profileNavLink.addEventListener("click", toggleProfile);
+  document.addEventListener("DOMContentLoaded", displayNotes);
 
   resetUI();
 }
