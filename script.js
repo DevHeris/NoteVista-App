@@ -89,6 +89,7 @@ function addNoteToDOM(title, content) {
  <div class="menu-x-date">
      <p class="date"></p>
      <div class="menu">
+         <i class="fa-regular fa-star favorite"></i>
          <i class="fa-regular fa-pen-to-square"></i>
          <i class="fa-regular fa-trash-can"></i>
      </div>

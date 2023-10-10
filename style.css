@@ -38,7 +38,7 @@ body {
 
 /* Set core body defaults */
 body {
-    background-image: url(Img/bg-pattern-desktop.svg);
+    background-image: url(img/bg-pattern-desktop.svg);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
