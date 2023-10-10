@@ -401,7 +401,7 @@ a:hover {
     overflow: hidden;
     position: absolute;
     right: 0;
-    top: 10%;
+    top: 100%;
     transition: max-height .5s ease-out;
     width: 20rem;
     z-index: 100;
